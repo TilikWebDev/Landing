@@ -1,0 +1,33 @@
+@import '../../colors.scss';
+
+header {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+
+    .logotype {
+        display: flex;
+    }
+
+    .nav_bar {
+        display: flex;
+
+        .nav_bar__link {
+            color: $headline_color;
+            font-size: 14px;
+            font-weight: 400;
+            padding-left: 30px;
+        }
+
+        .nav_bar__link:hover {
+            color: $primary_color;
+        }
+    }
+}

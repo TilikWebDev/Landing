@@ -1,0 +1,183 @@
+@import '../../colors.scss';
+
+/* MAIN SECTION */
+
+.main {
+    background-color: #1b4a8a;
+
+    .h1 {
+        letter-spacing: -0.8px; //PIXEL_PERFECT
+    }
+
+    .main__headline {
+        color: #fff;
+        text-transform: uppercase;
+    }
+
+    .main__text {
+        color: #fff;
+        max-width: 530px;
+        padding: 25px 0 34px 0;
+    }
+
+    .button_primary {
+        margin: 0 0 8px 0; //PIXEL_PERFECT
+    }
+}
+
+
+/* LETS GET SECTION */
+
+.acquaintance {
+    background-color: $background_color;
+    min-height: 720px;
+    align-items: center;
+
+    .h1 {
+        padding-top: 2px; //PIXEL_PERFECT
+        letter-spacing: -0.8px; //PIXEL_PERFECT
+    }
+
+    .acquaintance__content {
+        width: 100%;
+        display: flex;
+        padding-top: 68px; //PIXEL_PERFECT NORMALY 70
+
+        .acquaintance__image {
+            display: flex;
+            height: 296px; //PIXEL_PERFECT 285
+            padding: 5px 50px 5px 25px; //PIXEL_PERFECT NORMALY 0 50 0 25
+
+            img {
+                max-width: 100%;
+                max-height: 100%;
+                width: auto;
+                height: auto;
+            }
+        }
+
+        .acquaintance__text {
+            flex: 1;
+
+            .h2 {
+                padding-bottom: 20px; //PIXEL_PERFECT NORMALY 24
+            }
+
+            .p1 {
+                padding-bottom: 24px;
+                text-align: justify;
+            }
+
+            .flat_button {
+                padding-top: 6px; //PIXEL_PERFECT
+            }
+        }
+    }
+}
+
+
+/* USERS SECTION */
+
+.users {
+    background-color: $background_color2;
+    padding: 150px 0;
+    align-items: center;
+
+    .users__text {
+        text-align: center;
+
+        .h1 {
+            padding: 3px 0 0 0; //PIXEL_PERFECT
+        }
+
+        .p1 {
+            padding: 16px 0;
+        }
+    }
+
+    .users__list {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        padding: 0 15px 44px 15px;
+
+        .user {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: calc(100% / 3);
+            text-align: center;
+            padding: 60px 0 0 0;
+
+            .user__container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                max-width: 216px;
+                margin: 0 auto;
+
+                .p1 {
+                    width: 100%;
+                    margin: -4px 0;
+                }
+
+                .user__image {
+                    width: 72px;
+                    height: 72px;
+                    border: 2px solid #fff;
+                    border-radius: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    overflow: hidden;
+
+                    img {
+                        width: auto;
+                        height: auto;
+                        max-width: 100%;
+                        max-height: 100%;
+                    }
+                }
+
+                .user__name {
+                    margin: -10px 0;
+                    padding: 24px 0;
+                    word-break: break-all;
+                }
+
+                .user__email {
+                    position: relative;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    padding: 15px 0 19px 0;
+                    cursor: pointer;
+                }
+
+                .user__phone {
+                    line-height: 12px;
+                }
+            }
+        }
+    }
+}
+
+
+/* REGISTER SECTION */
+
+.register {
+    background-color: #fff;
+    align-items: center;
+    padding: 160px 0;
+
+    .register__min_container {
+        width: 100%;
+        max-width: 467px;
+
+        .register__title {
+            text-align: center;
+            padding: 15px 0;
+        }
+    }
+}
