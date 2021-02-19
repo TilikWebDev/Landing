@@ -1,9 +1,9 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from "react-scroll";
 
 const Acquaintance = () => {
     return (
-        <section className={'acquaintance container'}>
+        <section id={'acquaintance_container'} className={'acquaintance container'}>
             <h1 className={'h1'}>
                 Let's get acquainted
             </h1>
@@ -26,9 +26,15 @@ const Acquaintance = () => {
                         If 3rd party css/javascript libraries are added to the project via bower/npm/yarn you will get bonus points. If you use any task runner (gulp/webpack) you will get bonus points as well. Slice service directory page P​SD mockup​ into HTML5/CSS3. 
                     </p>
 
-                    <NavLink to={'/login'} className={'flat_button'}>
-                        Sign up Now
-                    </NavLink>
+                    <Link 
+                        to="register_container" 
+                        spy={true} 
+                        smooth={true} 
+                        duration={500} 
+                        className='flat_button' 
+                    >
+                        Sing up now
+                    </Link>
                 </div>
             </div>
         </section>

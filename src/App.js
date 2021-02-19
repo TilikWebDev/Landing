@@ -17,9 +17,7 @@ const App = (props) => {
   return (
     <div id={'wrapper'}>
       <Header/>
-
       <Route path={'/'} render={IndexContainer}/>
-
       <Footer/>
     </div>
   );

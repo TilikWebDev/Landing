@@ -39,9 +39,14 @@ export const Input = (props) => {
 export const File = (props) => {
     return (
         <FormControl {...props}>
-            <input type={'file'} className={'field__file'} {...props} onChange={(event) => {
-                props.form.setFieldValue(props.field.name, event.currentTarget.files[0]);
-            }} />
+            <label className={['field__file', props.field.value && (props.field.value.name) && 'text'].join(' ')}>
+                <input ref={props.childref} type={'file'} className={'field__input'} {...props} onChange={(event) => {
+                    props.form.setFieldValue(props.field.name, event.currentTarget.files[0]);
+                }} />
+
+                <span value={props.field.value && (props.field.value.name) ? props.field.value.name : props.placeholder}  className={'field__file_browser'}>
+                </span>
+            </label>
         </FormControl>
     )
 }
@@ -53,8 +58,11 @@ export const Radio = (props) => {
                 props.radio_controls.map((c, index) => {
                     return (
                         <label className={'field__radio'} key={index}>
-                            <input {...props.field} type={'radio'} name={props.field.name} value={c.id}/>
-                            {c.name}
+                            <input checked={props.value == c.id} {...props.field} type={'radio'} name={props.field.name} value={c.id}/>
+                            
+                            <p className={'p1'}>
+                                {c.name}
+                            </p>
                         </label>
                     )
                 })

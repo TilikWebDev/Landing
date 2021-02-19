@@ -1,4 +1,5 @@
-const { NavLink } = require('react-router-dom')
+import React from 'react';
+import { Link } from "react-scroll";
 
 const Main = () => {
 
@@ -7,7 +8,7 @@ const Main = () => {
     }
 
     return (
-        <section className={'main container'} style={styles}>
+        <section id={'main_container'} className={'main container'} style={styles}>
             <h1 className={'h1 main__headline'}>
                 Test assignment
                 <br></br>
@@ -23,9 +24,15 @@ const Main = () => {
                 </span>
             </p>
 
-            <NavLink className={'button_primary'} to={'/login'}>
+            <Link 
+                to="register_container" 
+                spy={true} 
+                smooth={true} 
+                duration={500} 
+                className='button_primary' 
+            >
                 Sing up now
-            </NavLink>
+            </Link>
         </section>
     );
 }

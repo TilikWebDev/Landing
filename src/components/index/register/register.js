@@ -1,11 +1,17 @@
-import React, { useRef } from 'react';
-
+import React, { useRef, useState } from 'react';
+import { scroller } from 'react-scroll';
 import { Formik, Field } from 'formik';
-import * as Validators from '../../utils/validators/validators';
 
+import * as Validators from '../../../utils/validators/validators';
 import {Input, Radio, File} from '../../../components/common/form-controls/form-controls';
+import {ModalCongratulations} from '../../modal/modal';
+
 
 const Register = ({register_button_status, register, positions}) => {
+
+    const [congratulations, setCongratulations] = useState(false);
+    const photoRef = useRef();
+
     const initialValues = {
         name: '', 
         email: '',
@@ -16,14 +22,16 @@ const Register = ({register_button_status, register, positions}) => {
 
     const onSubmit = (data, {resetForm}) => {
         const forceUpdate = () => {
+            photoRef.current.value = null;
             resetForm();
+            setCongratulations(true);
         }
 
         register(data, forceUpdate);
     }
 
     return (
-        <section className={'register container'}>
+        <section id={'register_container'} className={'register container'}>
             <h1 className={'h1'}>
                 Register to get a work
             </h1>
@@ -40,8 +48,8 @@ const Register = ({register_button_status, register, positions}) => {
                                 <Field title={'Name'} name={'name'} placeholder={'Your name'} component={Input} validate={Validators.validateName}/>
                                 <Field title={'Email'} name={'email'} placeholder={'Your email'} component={Input} validate={Validators.validateEmail}/>
                                 <Field title={'Phone number'} name={'phone'} placeholder={'+380 XX XXX XX XX'} inputMode={'tel'} assistive={'Enter a phone number in international format'} component={Input} validate={Validators.validatePhone}/>
-                                <Field title={'Select your position'} name={'position_id'} component={Radio} radio_controls={positions} validate={Validators.validatePositionId}/>
-                                <Field title={'Photo'} placeholder={'Upload your photo'} name={'photo'} component={File} validate={Validators.validatePhoto}/>
+                                <Field value={props.values.position_id} title={'Select your position'} name={'position_id'} component={Radio} radio_controls={positions} validate={Validators.validatePositionId}/>
+                                <Field childref={photoRef} title={'Photo'} placeholder={'Upload your photo'} name={'photo'} component={File} validate={Validators.validatePhoto}/>
 
                                 <button type={'submit'} className={`form__send button_primary ${register_button_status}`}>
                                     Sigh up Now
@@ -51,6 +59,19 @@ const Register = ({register_button_status, register, positions}) => {
                     }
                 </Formik>
             </div>
+
+            {
+                congratulations &&
+                <ModalCongratulations 
+                    closeCallback={() => {
+                        scroller.scrollTo('users_container', {
+                            duration: 500,
+                            spy: true,
+                            smooth: true
+                        });
+                    }}
+                />
+            }
         </section>
     )
 }

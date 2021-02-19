@@ -1,34 +1,68 @@
-import { NavLink } from "react-router-dom"
+import React from 'react';
+import { Link } from "react-scroll";
+
 import './header.scss'
 
 const Header = (props) => {
     return (
         <header className={'container'}>
-            <NavLink to={'/'} className={'logotype'}>
+            <Link 
+                to="main_container" 
+                spy={true} 
+                smooth={true} 
+                offset={-60}
+                duration={500} 
+                className='logotype' 
+            >
                 <img src={require('../../assets/logo.svg').default} alt={'logotype'}/>
-            </NavLink>
+            </Link>
 
-            <div className={'nav_bar'}>
-                <NavLink className={'nav_bar__link'} to={'/register'}>
+            <nav className={'nav_bar'}>
+                <Link 
+                    to="main_container" 
+                    spy={true} 
+                    smooth={true} 
+                    offset={-60}
+                    duration={500} 
+                    className='nav_bar__link' 
+                    activeClass='active'
+                >
                     About me
-                </NavLink>
+                </Link>
 
-                <NavLink className={'nav_bar__link'} to={'/register'}>
+                <Link 
+                    to="acquaintance_container" 
+                    spy={true} 
+                    smooth={true} 
+                    duration={500} 
+                    className='nav_bar__link' 
+                    activeClass='active'
+                >
                     Relationships
-                </NavLink>
+                </Link>
 
-                <NavLink className={'nav_bar__link'} to={'/register'}>
-                    Requirements
-                </NavLink>
-
-                <NavLink className={'nav_bar__link'} to={'/register'}>
+                <Link 
+                    to="users_container" 
+                    spy={true} 
+                    smooth={true} 
+                    duration={500} 
+                    className='nav_bar__link' 
+                    activeClass='active'
+                >
                     Users
-                </NavLink>
+                </Link>
 
-                <NavLink className={'nav_bar__link'} to={'/register'}>
+                <Link 
+                    to="register_container" 
+                    spy={true} 
+                    smooth={true} 
+                    duration={500} 
+                    className='nav_bar__link' 
+                    activeClass='active'
+                >
                     Sign Up
-                </NavLink>
-            </div>
+                </Link>
+            </nav>
         </header>
     )
 }

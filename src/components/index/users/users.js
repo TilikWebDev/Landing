@@ -1,9 +1,10 @@
 import React from 'react';
+
 import UserList from './user-list/user-list';
 
 const Users = ({users_data, current_page, show_more_status, getUsersData}) => {
     return (
-        <section className={'users container'}>
+        <section id={'users_container'} className={'users container'}>
             <div className={'users__text'}>
                 <h1 className={'h1'}>
                     Our cheerful users

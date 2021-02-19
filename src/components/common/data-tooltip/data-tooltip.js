@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+
 import '../common.scss';
 
 const DataTooltip = ({title, ...props}) => {
