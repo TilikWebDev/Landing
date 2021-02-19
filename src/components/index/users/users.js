@@ -20,7 +20,7 @@ const Users = ({users_data, current_page, show_more_status, getUsersData}) => {
             {
                 (show_more_status !== 'hide') &&
                     <button onClick={() => getUsersData(current_page)} className={['button_primary', show_more_status].join(' ')}>
-                        Show More
+                        Show more
                     </button>
             }
             

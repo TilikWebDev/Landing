@@ -32,7 +32,7 @@
     }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 480px) {
     .main {
         padding: 75px 15px;
         display: flex;
@@ -47,18 +47,18 @@
 
 .acquaintance {
     background-color: $background_color;
-    padding: 149px 30px 150px 30px;
+    padding: 149px 30px 152px 30px;
     align-items: center;
 
     .h1 {
-        padding-top: 2px; //PIXEL_PERFECT
+        padding-top: 3px; //PIXEL_PERFECT
         letter-spacing: -0.8px; //PIXEL_PERFECT
     }
 
     .acquaintance__content {
         width: 100%;
         display: flex;
-        padding-top: 68px; //PIXEL_PERFECT NORMALY 70
+        padding-top: 67px; //PIXEL_PERFECT NORMALY 70
 
         .acquaintance__image {
             display: flex;
@@ -106,12 +106,36 @@
     }
 }
 
+@media (max-width: 480px) {
+    .acquaintance {
+        padding: 70px 15px;
+        
+        .acquaintance__content {
+            flex-direction: column;
+            padding: 0;
+
+            .acquaintance__image {
+                height: auto;
+                width: 100%;
+                padding: 30px 20px;
+            }
+
+            .acquaintance__text {
+                flex: 1 1;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    }
+}
+
 
 /* USERS SECTION */
 
 .users {
     background-color: $background_color2;
-    padding: 150px 30px 160px 30px;
+    padding: 149px 30px 160px 30px;
     align-items: center;
 
     .users__text {
@@ -150,12 +174,12 @@
 
                 .p1 {
                     width: 100%;
-                    margin: -4px 0;
+                    line-height: 24px;
                 }
 
                 .user__image {
-                    width: 72px;
-                    height: 72px;
+                    width: 74px;
+                    height: 74px;
                     border: 2px solid #fff;
                     border-radius: 50%;
                     display: flex;
@@ -172,8 +196,7 @@
                 }
 
                 .user__name {
-                    margin: -10px 0;
-                    padding: 24px 0;
+                    padding: 13px 0 10px 0;
                     word-break: break-all;
                 }
 
@@ -182,7 +205,7 @@
                     overflow: hidden;
                     white-space: nowrap;
                     text-overflow: ellipsis;
-                    padding: 15px 0 19px 0;
+                    padding: 0 0 6px 0;
                     cursor: pointer;
                 }
 
@@ -198,6 +221,18 @@
 @media (max-width: 768px) {
     .users {
         padding: 121px 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .users {
+        padding: 70px 15px 80px 15px;
+
+        .users__list {
+            .user {
+                width: 100%;
+            }
+        }
     }
 }
 
@@ -222,5 +257,11 @@
 @media (max-width: 768px) {
     .register {
         padding: 118px 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .register {
+        padding: 75px 15px 80px 15px;
     }
 }
