@@ -44,6 +44,10 @@ section {
 }
 
 @media (max-width: 768px) {
+  section {
+    min-height: 500px;
+  }
+  
   .only_desktop {
     display: none !important;
   }

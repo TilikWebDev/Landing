@@ -75,6 +75,20 @@
     }
 }
 
+@media (max-width: 768px) {
+    .acquaintance {
+        min-height: 656px;
+
+        .acquaintance__content {
+            
+            .acquaintance__image {
+                height: 217px;
+                padding: 5px 30px;
+            }
+        }
+    }
+}
+
 
 /* USERS SECTION */
 
@@ -163,6 +177,11 @@
     }
 }
 
+@media (max-width: 768px) {
+    .users {
+        padding: 120px 0;
+    }
+}
 
 /* REGISTER SECTION */
 
@@ -179,5 +198,11 @@
             text-align: center;
             padding: 15px 0;
         }
+    }
+}
+
+@media (max-width: 768px) {
+    .register {
+        padding: 118px 0;
     }
 }
