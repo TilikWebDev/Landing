@@ -37,9 +37,21 @@ section {
 
 /* ADAPTIVE STYLES */
 
-@media (max-width: 360px) {
+@media (min-width: 769px) {
+  .only_tablet {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
   .only_desktop {
-    display: none;
+    display: none !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .only_mobile {
+    display: none !important;
   }
 }
 
@@ -143,6 +155,9 @@ a {
   .field__error.form__field {
     .field__input {
       border-color: $primary_color;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
     }
 
     .field__input:focus, .field__input:active{

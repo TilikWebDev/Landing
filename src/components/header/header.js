@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from "react-scroll";
 
 import './header.scss'
+import NavTablet from './nav-tablet';
 
 const Header = (props) => {
+
+    const [nav_mobile, setNavMobileStatus] = useState(false);
+
     return (
         <header className={'container'}>
             <Link 
@@ -17,7 +21,15 @@ const Header = (props) => {
                 <img src={require('../../assets/logo.svg').default} alt={'logotype'}/>
             </Link>
 
-            <nav className={'nav_bar'}>
+            <button className={'toggle_navbar only_tablet'} onClick={() => setNavMobileStatus(true)}>
+                <img src={require('../../assets/menu-icon.svg').default} alt={'logotype'}/>
+            </button>
+
+            { 
+                nav_mobile && <NavTablet closeNav={() => setNavMobileStatus(false)}/>
+            }
+
+            <nav className={'nav_bar only_desktop'}>
                 <Link 
                     to="main_container" 
                     spy={true} 
