@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
 import { Formik, Field } from 'formik';
 import * as Validators from '../../utils/validators/validators';
@@ -6,13 +6,20 @@ import * as Validators from '../../utils/validators/validators';
 import {Input, Radio, File} from '../../../components/common/form-controls/form-controls';
 
 const Register = ({register_button_status, register, positions}) => {
-
     const initialValues = {
         name: '', 
         email: '',
         phone: '',
         position_id: '',
         photo: ''
+    }
+
+    const onSubmit = (data, {resetForm}) => {
+        const forceUpdate = () => {
+            resetForm();
+        }
+
+        register(data, forceUpdate);
     }
 
     return (
@@ -26,17 +33,17 @@ const Register = ({register_button_status, register, positions}) => {
                     Attention! After successful registration and alert, update the list of users in the block from the top
                 </p>
 
-                <Formik className={'register__form'} initialValues={{...initialValues}}  onSubmit={register}>
+                <Formik className={'register__form'} enableReinitialize initialValues={{...initialValues}}  onSubmit={onSubmit}>
                     {
-                        ({handleSubmit, form}) => (
-                            <form onSubmit={handleSubmit} className={'form'}> 
+                        ({handleSubmit, ...props}) => (
+                            <form onSubmit={handleSubmit} name={'register'} className={'form'}> 
                                 <Field title={'Name'} name={'name'} placeholder={'Your name'} component={Input} validate={Validators.validateName}/>
                                 <Field title={'Email'} name={'email'} placeholder={'Your email'} component={Input} validate={Validators.validateEmail}/>
                                 <Field title={'Phone number'} name={'phone'} placeholder={'+380 XX XXX XX XX'} inputMode={'tel'} assistive={'Enter a phone number in international format'} component={Input} validate={Validators.validatePhone}/>
                                 <Field title={'Select your position'} name={'position_id'} component={Radio} radio_controls={positions} validate={Validators.validatePositionId}/>
                                 <Field title={'Photo'} placeholder={'Upload your photo'} name={'photo'} component={File} validate={Validators.validatePhoto}/>
 
-                                <button className={`form__send button_primary ${register_button_status}`}>
+                                <button type={'submit'} className={`form__send button_primary ${register_button_status}`}>
                                     Sigh up Now
                                 </button>
                             </form> 

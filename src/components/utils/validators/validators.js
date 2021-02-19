@@ -65,9 +65,11 @@ const fileFormat = (file) => {
     return ( /\.(jpe?g)$/i.test(file.name) === false ) ? 'The photo format must be jpeg/jpg type.' : undefined;
 }
 
-const fileWeight = (file) => {
-    let size_mb = 0.1;
-        return ((file.size / 1000000) > size_mb) ? `The photo size must not be greater than ${size_mb} Mb` : undefined;
+const fileWeight = (size_mb) => {
+    return (file) => {
+        let file_size = file.size / 1000000;
+        return (file_size > size_mb) ? `The photo size must not be greater than ${size_mb} Mb` : undefined;
+    }
 }
 
 // CUSTOM VALIDATORS
@@ -76,4 +78,4 @@ export const validateName = (value) => customFieldLevelValidation(value, [requir
 export const validateEmail = (value) => customFieldLevelValidation(value, [required, email, minLength(2), maxLength(100)]);
 export const validatePhone = (value) => customFieldLevelValidation(value, [required, phone]);
 export const validatePositionId = (value) => customFieldLevelValidation(value, [required, positionsId]);
-export const validatePhoto = (value) => customFieldLevelValidation(value, [required, fileFormat, photoSize, fileWeight]);
+export const validatePhoto = (value) => customFieldLevelValidation(value, [required, fileFormat, fileWeight(5), photoSize]);
