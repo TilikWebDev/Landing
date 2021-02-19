@@ -1,7 +1,7 @@
 import React from 'react';
 
 import DataTooltip from '../../../common/data-tooltip/data-tooltip';
-import PhotoCover from '../../../../assets/photo-cover.png';
+import PhotoCover from '../../../../assets/photo-cover.svg';
 
 const User = ({user}) => {
     return (
