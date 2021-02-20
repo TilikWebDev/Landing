@@ -46,8 +46,8 @@ export const register = (data, forceUpdate) => {
     return async (dispatch) => {
         try {
             dispatch(setRegisterButtonStatus('disabled'));
-            await usersAPI.sendRegisterData(data);
-            dispatch(getUsersData(0));
+            //await usersAPI.sendRegisterData(data);
+            //dispatch(getUsersData(0));
             forceUpdate({});
         } catch (error) {
             alert(error.response.data.message);

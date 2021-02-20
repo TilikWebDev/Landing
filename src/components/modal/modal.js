@@ -28,7 +28,7 @@ const Styles = {
 }
 
 
-export const ModalCongratulations = ({closeCallback}) => {
+const ModalCongratulations = ({closeCallback}) => {
     const [modalIsOpen, setIsOpen] = useState(true);
 
     const closeModal = () => {
@@ -68,3 +68,5 @@ export const ModalCongratulations = ({closeCallback}) => {
         </Modal>
     )
 }
+
+export default ModalCongratulations;

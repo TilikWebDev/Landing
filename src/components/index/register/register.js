@@ -62,7 +62,7 @@ const Register = ({register_button_status, register, positions}) => {
 
             {
                 congratulations &&
-                <Suspense fallback={'Loading'}>
+                <Suspense fallback={<div id={'loading'}/>}>
                     <ModalCongratulations 
                         closeCallback={() => {
                             scroller.scrollTo('users_container', {

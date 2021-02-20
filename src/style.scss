@@ -20,8 +20,8 @@ body {
   justify-content: center;
   align-items: center;
   padding: 20px;
-  background-color: #00000047;
-  color: #fff;
+  background-color: #f9f9f3;
+  color: $text_color;
 }
 
 #wrapper {
@@ -62,7 +62,7 @@ section {
   #wrapper {
     padding-top: 40px;
   }
-  
+
   .only_mobile {
     display: none !important;
   }
@@ -218,7 +218,7 @@ a {
         color: $text_color;
         background-color: #f8f7f5;
         border-left: 1px solid #ced4da;
-        padding: 7px 15.5px 9px 15.5px;
+        padding: 10px 15.5px 10px 15.5px;
         font-size: 16px;
       }
     }
