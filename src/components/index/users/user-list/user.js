@@ -1,16 +1,18 @@
 import React from 'react';
+import { LazyLoadImage, trackWindowScroll } from 'react-lazy-load-image-component';
 
 import DataTooltip from '../../../common/data-tooltip/data-tooltip';
 import PhotoCover from '../../../../assets/photo-cover.svg';
 
-const User = ({user}) => {
+const User = ({user, scrollPosition}) => {
     return (
         <div className={'user'}>
             <div className={'user__container'}>
                 <div className={'user__image'}>
-                    <img 
-                        alt={user.name} 
-                        src={user.photo} 
+                    <LazyLoadImage
+                        alt={user.name}
+                        scrollPosition={scrollPosition}
+                        src={user.photo}
                         onError={(e) => (e.target.onerror = null, e.target.src = PhotoCover)}
                     />
                 </div>
@@ -37,4 +39,4 @@ const User = ({user}) => {
     );
 }
 
-export default User;
+export default trackWindowScroll(User);

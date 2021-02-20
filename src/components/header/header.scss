@@ -82,3 +82,17 @@ header {
         }
     }
 }
+
+@media (max-width: 480px) {
+    header {
+        height: 40px;
+        padding: 0 15px !important;
+
+        #nav_tablet {
+
+            .nav_tablet__container {
+                padding-top: 40px;
+            }
+        }
+    }
+}

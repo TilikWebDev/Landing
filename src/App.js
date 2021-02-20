@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, lazy, Suspense } from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
 
 import { initializeApp } from './redux/app-reducer';
-
 import Header from './components/header/header';
 import Footer from './components/footer/footer';
-import IndexContainer from './components/index/index-container';
+
+const IndexContainer = lazy(() => import('./components/index/index-container'));
 
 const App = (props) => {
   useEffect(() => {
@@ -15,11 +15,21 @@ const App = (props) => {
   }, [props.initialized]);
 
   return (
-    <div id={'wrapper'}>
-      <Header/>
-      <Route path={'/'} render={IndexContainer}/>
-      <Footer/>
-    </div>
+    
+      <div id={'wrapper'}>
+        <Header/>
+        
+          <Route path={'/'} render={() => { 
+                return (
+                  <Suspense fallback={<div id={'loading'}/>}>
+                    <IndexContainer/>
+                  </Suspense>
+                );
+            }}
+          />
+
+        <Footer/>
+      </div>
   );
 }
 

@@ -1,11 +1,11 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, lazy, Suspense } from 'react';
 import { scroller } from 'react-scroll';
 import { Formik, Field } from 'formik';
 
 import * as Validators from '../../../utils/validators/validators';
 import {Input, Radio, File} from '../../../components/common/form-controls/form-controls';
-import {ModalCongratulations} from '../../modal/modal';
 
+const ModalCongratulations = lazy(() => import('../../modal/modal'));
 
 const Register = ({register_button_status, register, positions}) => {
 
@@ -62,15 +62,17 @@ const Register = ({register_button_status, register, positions}) => {
 
             {
                 congratulations &&
-                <ModalCongratulations 
-                    closeCallback={() => {
-                        scroller.scrollTo('users_container', {
-                            duration: 500,
-                            spy: true,
-                            smooth: true
-                        });
-                    }}
-                />
+                <Suspense fallback={'Loading'}>
+                    <ModalCongratulations 
+                        closeCallback={() => {
+                            scroller.scrollTo('users_container', {
+                                duration: 500,
+                                spy: true,
+                                smooth: true
+                            });
+                        }}
+                    />
+                </Suspense>
             }
         </section>
     )

@@ -4,7 +4,7 @@ import { Link } from "react-scroll";
 const Main = () => {
 
     let styles = {
-        backgroundImage: `url(${require('../../../assets/banner-photo.jpg').default})`
+        backgroundImage: `url(${require('../../../assets/banner-photo.webp').default})`
     }
 
     return (
