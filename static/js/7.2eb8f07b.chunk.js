@@ -1,2 +1,0 @@
-(this.webpackJsonplending=this.webpackJsonplending||[]).push([[7],{103:function(e,n,t){},124:function(e,n,t){"use strict";t.r(n);t(0),t(103);var s=t(8);n.default=function(){return Object(s.jsx)("footer",{className:"footer container",children:Object(s.jsx)("p",{className:"p1",children:"\xa9 abz.agency specially for the test task"})})}}}]);
-//# sourceMappingURL=7.2eb8f07b.chunk.js.map
