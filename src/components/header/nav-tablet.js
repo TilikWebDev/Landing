@@ -20,7 +20,7 @@ const NavTablet = ({closeNav}) => {
                             to="main_container" 
                             spy={true} 
                             smooth={true} 
-                            offset={-60}
+                            offset={-40}
                             duration={500} 
                             className='nav_bar__link' 
                             activeClass='active'
@@ -32,6 +32,7 @@ const NavTablet = ({closeNav}) => {
                             to="acquaintance_container" 
                             spy={true} 
                             smooth={true} 
+                            offset={-40}
                             duration={500} 
                             className='nav_bar__link' 
                             activeClass='active'
@@ -43,6 +44,7 @@ const NavTablet = ({closeNav}) => {
                             to="users_container" 
                             spy={true} 
                             smooth={true} 
+                            offset={-40}
                             duration={500} 
                             className='nav_bar__link' 
                             activeClass='active'
@@ -54,6 +56,7 @@ const NavTablet = ({closeNav}) => {
                             to="register_container" 
                             spy={true} 
                             smooth={true} 
+                            offset={-40}
                             duration={500} 
                             className='nav_bar__link' 
                             activeClass='active'

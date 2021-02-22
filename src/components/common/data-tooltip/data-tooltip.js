@@ -6,7 +6,7 @@ const DataTooltip = ({title, ...props}) => {
     let ref;
 
     useEffect(() => {
-        if (ref.children[0].offsetWidth < ref.children[0].scrollWidth) {
+        if (ref.children[0].offsetWidth < ref.children[0].scrollWidth && title == props.children.props.children) {
             ref.setAttribute('data-tooltip', title)
         }
     });

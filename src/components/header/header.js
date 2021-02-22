@@ -46,6 +46,7 @@ const Header = (props) => {
                     to="acquaintance_container" 
                     spy={true} 
                     smooth={true} 
+                    offset={-60}
                     duration={500} 
                     className='nav_bar__link' 
                     activeClass='active'
@@ -57,6 +58,7 @@ const Header = (props) => {
                     to="users_container" 
                     spy={true} 
                     smooth={true} 
+                    offset={-60}
                     duration={500} 
                     className='nav_bar__link' 
                     activeClass='active'
@@ -68,6 +70,7 @@ const Header = (props) => {
                     to="register_container" 
                     spy={true} 
                     smooth={true} 
+                    offset={-60}
                     duration={500} 
                     className='nav_bar__link' 
                     activeClass='active'
