@@ -35,15 +35,15 @@ header {
             font-weight: 400;
             padding-left: 30px;
             cursor: pointer;
-        }
 
-        .nav_bar__link:hover {
-            color: $primary_color;
-        }
+            &:hover {
+                color: $primary_color;
+            }
 
-        .nav_bar__link.active {
-            pointer-events: none;
-            color: $secondary_color;
+            &.active {
+                pointer-events: none;
+                color: $secondary_color;
+            }
         }
     }
 

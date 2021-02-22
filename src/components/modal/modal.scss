@@ -19,10 +19,10 @@
             padding: 0;
             line-height: 0;
             transform: rotate(45deg);
-        }
-
-        .modal__close:hover {
-            opacity: 1;
+            
+            &:hover {
+                opacity: 1;
+            }
         }
     }
 

@@ -1,6 +1,6 @@
 @import './colors.scss';
 
-/* GLOBAL STYLES */
+// GLOBAL STYLES
 
 * {
   font-family: 'Open Sans', sans-serif;
@@ -14,17 +14,19 @@ body {
   max-width: 2560px;
 }
 
-#loading:after {
-  content: "Loading...";
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  background-color: #f9f9f3;
-  color: $text_color;
-  margin: 0 auto;
-  max-width: 1170px;
-  box-sizing: border-box;
+#loading {
+  &:after {
+    content: "Loading...";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #f9f9f3;
+    color: $text_color;
+    margin: 0 auto;
+    max-width: 1170px;
+    box-sizing: border-box;
+  }
 }
 
 #wrapper {
@@ -47,7 +49,7 @@ section {
   background-position: center;
 }
 
-/* ADAPTIVE STYLES */
+// ADAPTIVE STYLES
 
 @media (min-width: 769px) {
   .only_tablet {
@@ -72,7 +74,7 @@ section {
 }
 
 
-/* TEXT STYLES */
+// TEXT STYLES
 
 .h1 {
   color: $headline_color;
@@ -117,7 +119,7 @@ a {
 }
 
 
-/* BUTTON STYLES */
+// BUTTON STYLES
 
 .button_primary {
   display: block;
@@ -132,16 +134,16 @@ a {
   text-align: center;
   border-radius: 4px;
   border: 0;
-}
 
-.button_primary:hover {
-  background-color: $primary_color_active;
-}
+  &:hover {
+    background-color: $primary_color_active;
+  }
 
-.button_primary.disabled {
-  pointer-events: none;
-  color: #8d8c8c;
-  background-color: #d7d7d7;
+  &.disabled {
+    pointer-events: none;
+    color: #8d8c8c;
+    background-color: #d7d7d7;
+  }
 }
 
 .flat_button {
@@ -154,41 +156,41 @@ a {
   cursor: pointer;
   background-color: transparent;
   color: $primary_color;
+
+  &:hover {
+    color: $primary_color_active;
+  }
 }
 
-.flat_button:hover {
-  color: $primary_color_active;
-}
 
-
-/* FORM STYLES */
+// FORM STYLES
 
 .form {
   * {
     font-family: 'PT Sans', sans-serif;
   }
 
-  .field__error.form__field {
-    .field__input {
-      border-color: $primary_color;
-    }
-
-    .field__input:focus, .field__input:active{
-      border-color: $primary_color;
-      -webkit-box-shadow: 10px 10px 5px 0px #f8d6da;
-      -moz-box-shadow: 10px 10px 5px 0px #f8d6da;
-      box-shadow: 0 0 0px 3px #f8d6da;
-    }
-
-    .field__assistive {
-      color: $primary_color;
-    }
-  }
-
   .form__field {
     display: flex;
     flex-direction: column;
     margin: 7px 0 13px 0;
+
+    &.field__error {
+      .field__input {
+        border-color: $primary_color;
+  
+        &:focus, &:active {
+          border-color: $primary_color;
+          -webkit-box-shadow: 10px 10px 5px 0px #f8d6da;
+          -moz-box-shadow: 10px 10px 5px 0px #f8d6da;
+          box-shadow: 0 0 0px 3px #f8d6da;
+        }
+      }
+  
+      .field__assistive {
+        color: $primary_color;
+      }
+    }
 
     .field__file {
       width: 100%;
@@ -204,32 +206,36 @@ a {
         width: 100%;
       }
 
-      .field__file_browser:after {
-        content: attr(value);
-        position: absolute;
-        top: 50%;
-        left: 12px;
-        transform: translate(0, -50%);
-        color: #b2b9c0;
+      .field__file_browser{
+        &:after {
+          content: attr(value);
+          position: absolute;
+          top: 50%;
+          left: 12px;
+          transform: translate(0, -50%);
+          color: #b2b9c0;
+        }
+
+        &:before {
+          content: 'Browse';
+          position: absolute;
+          right: 0;
+          top: 50%;
+          transform: translate(0, -50%);
+          color: $text_color;
+          background-color: #f8f7f5;
+          border-left: 1px solid #ced4da;
+          padding: 10px 15.5px 10px 15.5px;
+          font-size: 16px;
+        }
       }
 
-      .field__file_browser:before {
-        content: 'Browse';
-        position: absolute;
-        right: 0;
-        top: 50%;
-        transform: translate(0, -50%);
-        color: $text_color;
-        background-color: #f8f7f5;
-        border-left: 1px solid #ced4da;
-        padding: 10px 15.5px 10px 15.5px;
-        font-size: 16px;
-      }
-    }
-
-    .field__file.text {
-      .field__file_browser:after {
-        color: black;
+      &.text {
+        .field__file_browser {
+          &:after {
+           color: black;
+          }
+        }
       }
     }
 
@@ -242,13 +248,13 @@ a {
       -webkit-appearance: none;
       -moz-appearance: none;
       appearance: none;
-    }
 
-    .field__input:focus, .field__input:active{
-      border-color: #80bdff;
-      -webkit-box-shadow: 10px 10px 5px 0px #e6f2ff;
-      -moz-box-shadow: 10px 10px 5px 0px #e6f2ff;
-      box-shadow: 0 0 0px 3px #e6f2ff;
+      &:focus, &:active {
+        border-color: #80bdff;
+        -webkit-box-shadow: 10px 10px 5px 0px #e6f2ff;
+        -moz-box-shadow: 10px 10px 5px 0px #e6f2ff;
+        box-shadow: 0 0 0px 3px #e6f2ff;
+      }
     }
 
     .field__title {
