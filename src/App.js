@@ -1,11 +1,11 @@
 import React, { useEffect, lazy, Suspense } from 'react';
 import { compose } from 'redux';
-import { connect } from 'react-redux';
-import { Route } from 'react-router-dom';
+import { connect, Provider } from 'react-redux';
 
 import { initializeApp } from './redux/app-reducer';
 import Header from './components/header/header';
 import Footer from './components/footer/footer';
+import store from './redux/redux-store';
 
 const IndexContainer = lazy(() => import('./components/index/index-container'));
 
@@ -18,15 +18,10 @@ const App = (props) => {
     
       <div id={'wrapper'}>
         <Header/>
-        
-          <Route path={'/'} render={() => { 
-                return (
-                  <Suspense fallback={<div id={'loading'}/>}>
-                    <IndexContainer/>
-                  </Suspense>
-                );
-            }}
-          />
+
+        <Suspense fallback={<div id={'loading'}/>}>
+          <IndexContainer/>
+        </Suspense>
 
         <Footer/>
       </div>
@@ -39,6 +34,16 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default compose(
+const AppContainer = compose(
   connect(mapStateToProps, { initializeApp })
 )(App);
+
+const AppLanding = () => {
+  return (
+    <Provider store={store}>
+      <AppContainer/>
+    </Provider>
+  )
+}
+
+export default AppLanding;
