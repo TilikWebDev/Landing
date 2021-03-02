@@ -11,6 +11,8 @@ const User = ({user, scrollPosition}) => {
                 <div className={'user__image'}>
                     <LazyLoadImage
                         alt={user.name}
+                        width={70}
+                        height={70}
                         scrollPosition={scrollPosition}
                         src={user.photo}
                         onError={(e) => (e.target.onerror = null, e.target.src = PhotoCover)}
@@ -27,7 +29,9 @@ const User = ({user, scrollPosition}) => {
 
                 <DataTooltip title={user.email}>
                     <p className={'user__email p1'}>
-                        {user.email}
+                        <span className={'user__email_overflow'}>
+                            {user.email}
+                        </span>
                     </p>
                 </DataTooltip>
 

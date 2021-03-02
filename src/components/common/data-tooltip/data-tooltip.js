@@ -1,19 +1,20 @@
-import React, { useEffect } from 'react';
-
-import '../common.scss';
+import React, { useEffect, useRef } from 'react';
+import './data-tooltip.scss';
 
 const DataTooltip = ({title, ...props}) => {
-    let ref;
+    let ref = useRef();
 
     useEffect(() => {
-        if (ref.children[0].offsetWidth < ref.children[0].scrollWidth && title == props.children.props.children) {
-            ref.setAttribute('data-tooltip', title)
+        if (ref.current.firstChild.firstChild.scrollWidth > ref.current.firstChild.firstChild.clientWidth) {
+            ref.current.setAttribute('data-tooltip', title)
         }
-    });
+    }, [ref]);
 
     return (
-        <div ref={(d) => ref = d} className={'tooltip'}>
-            {props.children}
+        <div ref={ref} className={'tooltip'}>
+            {
+                React.cloneElement(props.children, {ref: ref})
+            }
         </div>
     )
 }

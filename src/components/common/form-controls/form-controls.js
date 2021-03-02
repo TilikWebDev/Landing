@@ -1,4 +1,5 @@
 import React from 'react';
+require('./form-controls.scss');
 
 const FormControl = ({form, field, title, assistive, ...props}) => {
     let errors = form.errors[field.name];

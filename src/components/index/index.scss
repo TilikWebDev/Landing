@@ -26,23 +26,6 @@
     }
 }
 
-@media (max-width: 768px) {
-    .main {
-        padding: 71.5px 30px;
-    }
-}
-
-@media (max-width: 480px) {
-    .main {
-        padding: 75px 15px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-}
-
-
 // LETS GET SECTION
 
 .acquaintance {
@@ -91,45 +74,6 @@
         }
     }
 }
-
-@media (max-width: 768px) {
-    .acquaintance {
-        padding: 112.5px 30px;
-
-        .acquaintance__content {
-            
-            .acquaintance__image {
-                height: 217px;
-                padding: 5px 30px;
-            }
-        }
-    }
-}
-
-@media (max-width: 480px) {
-    .acquaintance {
-        padding: 70px 15px;
-        
-        .acquaintance__content {
-            flex-direction: column;
-            padding: 0;
-
-            .acquaintance__image {
-                height: auto;
-                width: 100%;
-                padding: 30px 20px;
-            }
-
-            .acquaintance__text {
-                flex: 1 1;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-    }
-}
-
 
 // USERS SECTION
 
@@ -202,35 +146,23 @@
 
                 .user__email {
                     position: relative;
-                    overflow: hidden;
-                    white-space: nowrap;
-                    text-overflow: ellipsis;
                     padding: 0 0 6px 0;
-                    cursor: pointer;
+                    display: block;
+
+                    .user__email_overflow {
+                        flex-shrink: 0;
+                        display: block;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        cursor: pointer;
+                    }
                 }
 
                 .user__phone {
                     line-height: 12px;
                     word-break: break-all;
                 }
-            }
-        }
-    }
-}
-
-@media (max-width: 768px) {
-    .users {
-        padding: 121px 30px;
-    }
-}
-
-@media (max-width: 480px) {
-    .users {
-        padding: 70px 15px 80px 15px;
-
-        .users__list {
-            .user {
-                width: 100%;
             }
         }
     }
@@ -255,12 +187,80 @@
 }
 
 @media (max-width: 768px) {
+    //MAIN SECTION
+    .main {
+        padding: 71.5px 30px;
+    }
+
+    // LETS GET SECTION
+    .acquaintance {
+        padding: 112.5px 30px;
+
+        .acquaintance__content {
+            
+            .acquaintance__image {
+                height: 217px;
+                padding: 5px 30px;
+            }
+        }
+    }
+
+    //USERS SECTION
+    .users {
+        padding: 121px 30px;
+    }
+
+    //REGISTER SECTION
     .register {
         padding: 118px 30px;
     }
 }
 
 @media (max-width: 480px) {
+    //MAIN SECTION
+    .main {
+        padding: 75px 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    // LETS GET SECTION
+    .acquaintance {
+        padding: 70px 15px;
+        
+        .acquaintance__content {
+            flex-direction: column;
+            padding: 0;
+
+            .acquaintance__image {
+                height: auto;
+                width: 100%;
+                padding: 30px 20px;
+            }
+
+            .acquaintance__text {
+                flex: 1 1;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    }
+
+    //USERS SECTION
+    .users {
+        padding: 70px 15px 80px 15px;
+
+        .users__list {
+            .user {
+                width: 100%;
+            }
+        }
+    }
+
+    //REGISTER SECTION
     .register {
         padding: 75px 15px 80px 15px;
     }

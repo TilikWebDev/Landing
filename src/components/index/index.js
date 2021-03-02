@@ -1,5 +1,5 @@
 import { Suspense, lazy } from 'react';
-
+import {Element} from 'react-scroll';
 import './index.scss';
 
 const Main = lazy(() => import('./main/main'));
@@ -9,12 +9,23 @@ const RegisterContainer = lazy(() => import('./register/register-container'));
 
 const Index = (props) => {
     return (
-        <Suspense fallback={<div id={'loading'}/>}>
-            <Main/>
-            <Acquaintance/>
-            <UsersContainer/>
-            <RegisterContainer/>
-        </Suspense>
+        <div>
+            <Suspense fallback={<div id={'loading'}/>}>
+                <Main/>
+            </Suspense> 
+            
+            <Suspense fallback={<div id={'loading'}/>}>
+                <Acquaintance/> 
+            </Suspense>
+            
+            <Suspense fallback={<div id={'loading'}/>}>
+                <UsersContainer/>
+            </Suspense>
+            
+            <Suspense fallback={<div id={'loading'}/>}>
+                <RegisterContainer/>
+            </Suspense>
+        </div>
     )
 }
 

@@ -4,25 +4,25 @@ import { Link } from "react-scroll";
 import './header.scss'
 import NavTablet from './nav-tablet';
 
+const MyLink = ({to, className, ...props}) => {
+    return (
+        <Link to={to} className={className} spy={true} smooth={true} offset={-60} duration={500} activeClass={'active'} onSetActive={() => {console.log(to)}}>
+            {props.children}
+        </Link>
+    )
+}
+
 const Header = (props) => {
 
     const [nav_mobile, setNavMobileStatus] = useState(false);
-
     return (
         <header className={'container'}>
-            <Link 
-                to="main_container" 
-                spy={true} 
-                smooth={true} 
-                offset={-60}
-                duration={500} 
-                className='logotype' 
-            >
-                <img src={require('../../assets/logo.svg').default} alt={'logotype'}/>
-            </Link>
+            <MyLink to={'main_container'} className={'logotype'}>
+                <img width={135} height={20} src={require('../../assets/logo.svg').default} alt={'logotype'}/>
+            </MyLink>
 
             <button className={'toggle_navbar only_tablet'} onClick={() => setNavMobileStatus(true)}>
-                <img src={require('../../assets/menu-icon.svg').default} alt={'logotype'}/>
+                <img width={20} height={15} src={require('../../assets/menu-icon.svg').default} alt={'logotype'}/>
             </button>
 
             { 
@@ -30,53 +30,21 @@ const Header = (props) => {
             }
 
             <nav className={'nav_bar only_desktop'}>
-                <Link 
-                    to="main_container" 
-                    spy={true} 
-                    smooth={true} 
-                    offset={-60}
-                    duration={500} 
-                    className='nav_bar__link' 
-                    activeClass='active'
-                >
+                <MyLink to="main_container" className='nav_bar__link'>
                     About me
-                </Link>
+                </MyLink>
 
-                <Link 
-                    to="acquaintance_container" 
-                    spy={true} 
-                    smooth={true} 
-                    offset={-60}
-                    duration={500} 
-                    className='nav_bar__link' 
-                    activeClass='active'
-                >
+                <MyLink to="acquaintance_container" className='nav_bar__link'>
                     Relationships
-                </Link>
+                </MyLink>
 
-                <Link 
-                    to="users_container" 
-                    spy={true} 
-                    smooth={true} 
-                    offset={-60}
-                    duration={500} 
-                    className='nav_bar__link' 
-                    activeClass='active'
-                >
+                <MyLink to="users_container" className='nav_bar__link'>
                     Users
-                </Link>
+                </MyLink>
 
-                <Link 
-                    to="register_container" 
-                    spy={true} 
-                    smooth={true} 
-                    offset={-60}
-                    duration={500} 
-                    className='nav_bar__link' 
-                    activeClass='active'
-                >
+                <MyLink to="register_container" className='nav_bar__link'>
                     Sign Up
-                </Link>
+                </MyLink>
             </nav>
         </header>
     )

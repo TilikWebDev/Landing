@@ -1,7 +1,8 @@
 import React from 'react';
+import { LazyLoadImage, trackWindowScroll } from 'react-lazy-load-image-component';
 import { Link } from "react-scroll";
 
-const Acquaintance = () => {
+const Acquaintance = ({scrollPosition}) => {
     return (
         <section id={'acquaintance_container'} className={'acquaintance container'}>
             <h1 className={'h1'}>
@@ -10,7 +11,13 @@ const Acquaintance = () => {
 
             <div className={'acquaintance__content'}>
                 <div className={'acquaintance__image'}>
-                    <img src={require('../../../assets/man-laptop-v1.svg').default} alt={'programmer'}/>
+                    <LazyLoadImage
+                        alt={'programmer'}
+                        width={339}
+                        height={286}
+                        scrollPosition={scrollPosition}
+                        src={require('../../../assets/man-laptop-v1.svg').default}
+                    />
                 </div>
 
                 <div className={'acquaintance__text'}>
@@ -41,4 +48,4 @@ const Acquaintance = () => {
     )
 }
 
-export default Acquaintance;
+export default trackWindowScroll(Acquaintance);

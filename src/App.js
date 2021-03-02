@@ -7,7 +7,7 @@ import Header from './components/header/header';
 import Footer from './components/footer/footer';
 import store from './redux/redux-store';
 
-const IndexContainer = lazy(() => import('./components/index/index-container'));
+import IndexContainer from './components/index/index-container';
 
 const App = (props) => {
   useEffect(() => {
@@ -18,11 +18,7 @@ const App = (props) => {
     
       <div id={'wrapper'}>
         <Header/>
-
-        <Suspense fallback={<div id={'loading'}/>}>
-          <IndexContainer/>
-        </Suspense>
-
+        <IndexContainer/>
         <Footer/>
       </div>
   );
