@@ -1,0 +1,2 @@
+.tooltip{width:100%;position:relative}[data-tooltip]:after{content:attr(data-tooltip);position:absolute;opacity:0;transition:.3s;pointer-events:none;left:50%;top:0;transform:translate(-50%);background-color:rgba(0,0,0,.8);color:#fff;line-height:24px;padding:3px 10px;border-radius:4px;font-size:14px;width:100%;word-break:break-all}[data-tooltip]:hover:after{top:100%;opacity:1}
+/*# sourceMappingURL=6.978312a6.chunk.css.map */
